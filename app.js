@@ -9,7 +9,7 @@ const CONFIG = {
 
     yourName: "samrat",
 
-    songTitle: "YOUR SONG TITLE",
+    songTitle: "yash",
 
     artistName: "YOUR ARTIST"
 };
@@ -610,19 +610,13 @@ function setupReasons() {
 
     const reasons = [
 
-        "You make normal days feel less boring.",
+        "मनाने चांगली, पण रिप्लायमध्ये थोडी “प्रिमियम” 😜",
 
-        "You listen even when my story makes absolutely no sense.",
+        "स्पोर्ट्समध्ये ऑलराउंडर आणि मेसेज रिप्लायमध्ये स्पीड कंट्रोल मोडवर 🚦😂",
 
-        "You know how to make me laugh at the worst possible time.",
+        "राग नाही येत तिला… फक्त तिचा नॉर्मल मोडच थोडा रागीट वाटतो. 😎",
 
-        "You have seen my weird side and somehow stayed.",
-
-        "You make friendship feel easy and genuine.",
-
-        "You are one of the people I can truly count on.",
-
-        "Life simply has better stories because you are in it."
+        "क्रश आहे की नाही हे अजूनही महाराष्ट्रातील सर्वात मोठं रहस्य आहे. 🤫😜",
 
     ];
 
