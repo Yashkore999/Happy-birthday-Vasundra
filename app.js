@@ -5,9 +5,9 @@
 const CONFIG = {
     passcode: "150726",
 
-    friendName: "YOUR FRIEND NAME",
+    friendName: "Vasundra",
 
-    yourName: "YOUR NAME",
+    yourName: "samrat",
 
     songTitle: "YOUR SONG TITLE",
 
