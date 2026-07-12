@@ -3,7 +3,7 @@
 ========================================= */
 
 const CONFIG = {
-    passcode: "1417",
+    passcode: "150726",
 
     friendName: "YOUR FRIEND NAME",
 
@@ -85,8 +85,8 @@ keypad.addEventListener(
         // Add number
         if (
             number !== undefined &&
-            enteredCode.length < 4
-        ) {
+            enteredCode.length <  6
+               ) {
             enteredCode += number;
         }
 
@@ -103,7 +103,7 @@ keypad.addEventListener(
 
 
         // Check automatically after 4 digits
-        if (enteredCode.length === 4) {
+        if (enteredCode.length === 6) {
 
             checkPasscode();
 
