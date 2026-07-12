@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f8eee7"
+    >
+
+    <title>For My Best Friend 💌</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- DECORATION LAYER -->
+    <div
+        id="effectsLayer"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- ========================= -->
+    <!-- PASSCODE SCREEN -->
+    <!-- ========================= -->
+
+    <main
+        id="lockScreen"
+        class="lock-screen"
+    >
+
+        <section class="lock-card">
+
+            <div class="floating-icon icon-one">♡</div>
+            <div class="floating-icon icon-two">✦</div>
+            <div class="floating-icon icon-three">☁</div>
+
+            <p class="tiny-title">
+                PRIVATE FRIENDSHIP AREA
+            </p>
+
+            <div class="friend-symbol">
+                <span>F</span>
+                <span class="heart-small">♡</span>
+                <span>F</span>
+            </div>
+
+            <h1>
+                A little something
+                <em>for you</em>
+            </h1>
+
+            <p class="subtitle">
+                Enter the secret code to continue
+            </p>
+
+
+            <!-- PIN DOTS -->
+
+            <div
+                id="pinDots"
+                class="pin-dots"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+
+            <!-- KEYPAD -->
+
+            <div
+                id="keypad"
+                class="keypad"
+            >
+
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+
+                <button
+                    class="special-key"
+                    disabled
+                >
+                    ♡
+                </button>
+
+                <button data-number="0">0</button>
+
+                <button data-action="delete">
+                    ⌫
+                </button>
+
+            </div>
+
+
+            <p class="hint">
+                Hint: a special 4-digit code ✨
+            </p>
+
+            <p
+                id="pinMessage"
+                class="pin-message"
+            ></p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- MAIN AJAX APPLICATION -->
+    <!-- ========================= -->
+
+    <main
+        id="app"
+        class="app hidden"
+    >
+
+        <!-- TOP BAR -->
+
+        <header class="app-header">
+
+            <button
+                id="homeButton"
+                class="header-button hidden"
+                aria-label="Go home"
+            >
+                ⌂
+            </button>
+
+            <div class="brand">
+                for my friend ♡
+            </div>
+
+            <button
+                id="soundButton"
+                class="header-button"
+                aria-label="Sound control"
+            >
+                ♪
+            </button>
+
+        </header>
+
+
+        <!-- AJAX CONTENT LOADS HERE -->
+
+        <section
+            id="pageContainer"
+            class="page-container"
+        >
+
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MUSIC -->
+ <audio
+    id="audioPlayer"
+    src="./assets/song.mp3"
+    preload="auto"
+    loop
+     ></audio>
+    <!-- TOAST -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
