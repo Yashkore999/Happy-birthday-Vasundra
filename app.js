@@ -491,40 +491,215 @@ function replaceDynamicText() {
    GIFTS
 ========================================= */
 
+/* =========================================
+   GIFTS
+========================================= */
+
 function setupGifts() {
 
-    const result =
-        document.getElementById(
-            "giftResult"
-        );
+    const content =
+        document.getElementById("giftContent");
+
+    const phone =
+        "8999286657"; // Example: 919876543210
 
 
-    const messages = {
+    function openWhatsApp(message) {
 
-        one: `
-            <strong>💌 A small reminder</strong>
-            <br><br>
-            No matter how busy life gets,
-            I hope you always remember
-            that I am cheering for you.
-        `,
+        const url =
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
-        two: `
-            <strong>🏆 Your friendship award</strong>
-            <br><br>
-            Officially awarded for surviving
-            my bad jokes, random messages,
-            and unnecessary drama.
-        `,
+        window.open(url, "_blank");
+    }
 
-        three: `
-            <strong>✨ One promise</strong>
-            <br><br>
-            More laughs, more memories,
-            more stupid decisions,
-            and more stories to tell.
-        `
-    };
+
+    // -----------------------
+    // BIRYANI
+    // -----------------------
+
+    document
+        .getElementById("giftBiryani")
+        .addEventListener("click", function () {
+
+            content.classList.add("show");
+
+            content.innerHTML = `
+
+                <h2>🍗 Chicken Biryani</h2>
+
+                <p>
+                    Hey... ❤️
+                    <br><br>
+
+                    Will you come with me
+                    to eat Chicken Biryani?
+                </p>
+
+                <br>
+
+                <button
+                    class="primary-button"
+                    id="biryaniYes"
+                >
+                    ❤️ Yes
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="biryaniNo"
+                >
+                    😊 Maybe
+                </button>
+
+            `;
+
+            document
+                .getElementById("biryaniYes")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "Yes ❤️ I will come with you for Chicken Biryani."
+                    );
+
+                });
+
+            document
+                .getElementById("biryaniNo")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "Maybe 😊 We will plan another day."
+                    );
+
+                });
+
+        });
+
+
+
+    // -----------------------
+    // CHOCOLATE
+    // -----------------------
+
+    document
+        .getElementById("giftChocolate")
+        .addEventListener("click", function () {
+
+            content.classList.add("show");
+
+            content.innerHTML = `
+
+                <h2>🍫 Dairy Milk Silk</h2>
+
+                <p>
+                    Do you want a 
+                     Dairy Milk Silk? 🍫
+                </p>
+
+                <br>
+
+                <button
+                    class="primary-button"
+                    id="buyChocolate"
+                >
+                    🍫 Yes
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="laterChocolate"
+                >
+                    😅 Later
+                </button>
+
+            `;
+
+            document
+                .getElementById("buyChocolate")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "Yes 🍫 I will buy you a Dairy Milk Silk."
+                    );
+
+                });
+
+            document
+                .getElementById("laterChocolate")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "Later 😅 I promise."
+                    );
+
+                });
+
+        });
+
+
+
+    // -----------------------
+    // OFFLINE GIFT
+    // -----------------------
+
+    document
+        .getElementById("giftOffline")
+        .addEventListener("click", function () {
+
+            content.classList.add("show");
+
+            content.innerHTML = `
+
+                <h2>🎁 One Last Wish</h2>
+
+                <p>
+                    When we meet...
+                    <br><br>
+
+                   do you want? ❤️
+                </p>
+
+                <br>
+
+                <button
+                    class="primary-button"
+                    id="giftYes"
+                >
+                    ❤️ Of Course
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="giftNo"
+                >
+                    🤔 I'll Think
+                </button>
+
+            `;
+
+            document
+                .getElementById("giftYes")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "Of course ❤️ I will bring you a surprise gift."
+                    );
+
+                });
+
+            document
+                .getElementById("giftNo")
+                .addEventListener("click", function () {
+
+                    openWhatsApp(
+                        "I'll think about the surprise gift 😊"
+                    );
+
+                });
+
+        });
+
+}
 
 
     document
@@ -560,7 +735,7 @@ function setupGifts() {
 
             }
         );
-}
+
 
 
 /* =========================================
