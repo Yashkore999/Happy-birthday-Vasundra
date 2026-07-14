@@ -256,7 +256,7 @@ async function loadPage(pageName) {
 
     audioPlayer.pause();
 
-    audioPlayer.src = "./assets/home-song.mp3";
+    audioPlayer.src = "./assets/home-song.1.mp3";
 
     audioPlayer.load();
 
@@ -887,7 +887,7 @@ function setupMusicPage() {
     // Change to the Music Page song
     audioPlayer.pause();
 
-    audioPlayer.src = "./assets/music-song.mp3";
+    audioPlayer.src = "./assets/song.2.mp3";
 
     audioPlayer.load();
 
