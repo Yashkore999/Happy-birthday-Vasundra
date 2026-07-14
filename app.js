@@ -251,7 +251,18 @@ function checkPasscode() {
 async function loadPage(pageName) {
 
     showLoader();
+// Home page music
+  if (page === "home") {
 
+    audioPlayer.pause();
+
+    audioPlayer.src = "./assets/home-song.mp3";
+
+    audioPlayer.load();
+
+    audioPlayer.play().catch(() => {});
+
+  }
 
     try {
 
@@ -494,210 +505,214 @@ function replaceDynamicText() {
 /* =========================================
    GIFTS
 ========================================= */
+/* =========================================
+   GIFTS
+========================================= */
+
+const SHEET_API =
+"https://script.google.com/macros/s/AKfycbxyCxgkk_pH1fCrTxOBrR-fU9HRcuQZRl1TnXS99gyBxRPSEnfkd4HqqDooJmkdhd82/exec";
+
+
+async function sendReply(gift, reply) {
+
+    if (reply.trim() === "") {
+        alert("Please type your reply ❤️");
+        return;
+    }
+
+    try {
+
+        await fetch(SHEET_API, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                gift: gift,
+
+                reply: reply,
+
+                browser: navigator.userAgent
+
+            })
+
+        });
+
+        alert("❤️ Reply Sent Successfully!");
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong!");
+
+    }
+
+}
+
+
 
 function setupGifts() {
 
     const content =
         document.getElementById("giftContent");
 
-    const phone =
-        "8999286657"; // Example: 919876543210
 
 
-    function openWhatsApp(message) {
-
-        const url =
-            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-        window.open(url, "_blank");
-    }
-
-
-    // -----------------------
+    // -------------------------
     // BIRYANI
-    // -----------------------
+    // -------------------------
 
     document
         .getElementById("giftBiryani")
-        .addEventListener("click", function () {
+        .onclick = function () {
 
-            content.classList.add("show");
+        content.innerHTML = `
 
-            content.innerHTML = `
+            <h2>🍗 Chicken Biryani</h2>
 
-                <h2>🍗 Chicken Biryani</h2>
+            <p>
+                Hey...
+                <br><br>
 
-                <p>
-                    Hey... ❤️
-                    <br><br>
+                Will you come with me
+                to eat Chicken Biryani? ❤️
+            </p>
 
-                    Will you come with me
-                    to eat Chicken Biryani?
-                </p>
+            <textarea
+                id="replyBox"
+                placeholder="Type your reply here..."
+            ></textarea>
 
-                <br>
+            <br><br>
 
-                <button
-                    class="primary-button"
-                    id="biryaniYes"
-                >
-                    ❤️ Yes
-                </button>
+            <button
+                class="primary-button"
+                id="sendReply"
+            >
+                Send Reply ❤️
+            </button>
 
-                <button
-                    class="secondary-button"
-                    id="biryaniNo"
-                >
-                    😊 Maybe
-                </button>
+        `;
 
-            `;
+        document
+            .getElementById("sendReply")
+            .onclick = function () {
 
-            document
-                .getElementById("biryaniYes")
-                .addEventListener("click", function () {
+            sendReply(
+                "Chicken Biryani",
+                document.getElementById("replyBox").value
+            );
 
-                    openWhatsApp(
-                        "Yes ❤️ I will come with you for Chicken Biryani."
-                    );
+        };
 
-                });
-
-            document
-                .getElementById("biryaniNo")
-                .addEventListener("click", function () {
-
-                    openWhatsApp(
-                        "Maybe 😊 We will plan another day."
-                    );
-
-                });
-
-        });
+    };
 
 
 
-    // -----------------------
+    // -------------------------
     // CHOCOLATE
-    // -----------------------
+    // -------------------------
 
     document
         .getElementById("giftChocolate")
-        .addEventListener("click", function () {
+        .onclick = function () {
 
-            content.classList.add("show");
+        content.innerHTML = `
 
-            content.innerHTML = `
+            <h2>🍫 Dairy Milk Silk</h2>
 
-                <h2>🍫 Dairy Milk Silk</h2>
+            <p>
+                Will you buy me
+                a Dairy Milk Silk? ❤️
+            </p>
 
-                <p>
-                    Do you want a 
-                     Dairy Milk Silk? 🍫
-                </p>
+            <textarea
+                id="replyBox"
+                placeholder="Type your reply here..."
+            ></textarea>
 
-                <br>
+            <br><br>
 
-                <button
-                    class="primary-button"
-                    id="buyChocolate"
-                >
-                    🍫 Yes
-                </button>
+            <button
+                class="primary-button"
+                id="sendReply"
+            >
+                Send Reply ❤️
+            </button>
 
-                <button
-                    class="secondary-button"
-                    id="laterChocolate"
-                >
-                    😅 Later
-                </button>
+        `;
 
-            `;
+        document
+            .getElementById("sendReply")
+            .onclick = function () {
 
-            document
-                .getElementById("buyChocolate")
-                .addEventListener("click", function () {
+            sendReply(
+                "Chocolate",
+                document.getElementById("replyBox").value
+            );
 
-                    openWhatsApp(
-                        "Yes 🍫 I will buy you a Dairy Milk Silk."
-                    );
+        };
 
-                });
-
-            document
-                .getElementById("laterChocolate")
-                .addEventListener("click", function () {
-
-                    openWhatsApp(
-                        "Later 😅 I promise."
-                    );
-
-                });
-
-        });
+    };
 
 
 
-    // -----------------------
+    // -------------------------
     // OFFLINE GIFT
-    // -----------------------
+    // -------------------------
 
     document
         .getElementById("giftOffline")
-        .addEventListener("click", function () {
+        .onclick = function () {
 
-            content.classList.add("show");
+        content.innerHTML = `
 
-            content.innerHTML = `
+            <h2>🎁 Surprise Gift</h2>
 
-                <h2>🎁 One Last Wish</h2>
+            <p>
+                When we meet...
 
-                <p>
-                    When we meet...
-                    <br><br>
+                <br><br>
 
-                   do you want? ❤️
-                </p>
+                Will you bring me
+                a surprise gift? ❤️
+            </p>
 
-                <br>
+            <textarea
+                id="replyBox"
+                placeholder="Type your reply here..."
+            ></textarea>
 
-                <button
-                    class="primary-button"
-                    id="giftYes"
-                >
-                    ❤️ Of Course
-                </button>
+            <br><br>
 
-                <button
-                    class="secondary-button"
-                    id="giftNo"
-                >
-                    🤔 I'll Think
-                </button>
+            <button
+                class="primary-button"
+                id="sendReply"
+            >
+                Send Reply ❤️
+            </button>
 
-            `;
+        `;
 
-            document
-                .getElementById("giftYes")
-                .addEventListener("click", function () {
+        document
+            .getElementById("sendReply")
+            .onclick = function () {
 
-                    openWhatsApp(
-                        "Of course ❤️ I will bring you a surprise gift."
-                    );
+            sendReply(
+                "Offline Gift",
+                document.getElementById("replyBox").value
+            );
 
-                });
+        };
 
-            document
-                .getElementById("giftNo")
-                .addEventListener("click", function () {
-
-                    openWhatsApp(
-                        "I'll think about the surprise gift 😊"
-                    );
-
-                });
-
-        });
+    };
 
 }
 
@@ -863,32 +878,32 @@ function setupReasons() {
    MUSIC
 ========================================= */
 
+/* =========================================
+   MUSIC PAGE
+========================================= */
+
 function setupMusicPage() {
 
-    const playButton =
-        document.getElementById(
-            "playMusic"
-        );
+    // Change to the Music Page song
+    audioPlayer.pause();
 
+    audioPlayer.src = "./assets/music-song.mp3";
+
+    audioPlayer.load();
+
+    const playButton =
+        document.getElementById("playMusic");
 
     const vinyl =
-        document.getElementById(
-            "vinyl"
-        );
+        document.getElementById("vinyl");
 
 
     if (!playButton) return;
 
 
-    if (!audioPlayer.paused) {
+    playButton.textContent = "▶";
 
-        playButton.textContent =
-            "❚❚";
-
-        vinyl.classList.add(
-            "playing"
-        );
-    }
+    vinyl.classList.remove("playing");
 
 
     playButton.addEventListener(
@@ -901,240 +916,65 @@ function setupMusicPage() {
 
                     await audioPlayer.play();
 
+                    playButton.textContent = "❚❚";
 
-                    playButton.textContent =
-                        "❚❚";
-
-
-                    vinyl.classList.add(
-                        "playing"
-                    );
+                    vinyl.classList.add("playing");
 
                 } else {
 
                     audioPlayer.pause();
 
+                    playButton.textContent = "▶";
 
-                    playButton.textContent =
-                        "▶";
+                    vinyl.classList.remove("playing");
 
-
-                    vinyl.classList.remove(
-                        "playing"
-                    );
                 }
 
-            } catch (error) {
+            }
+
+            catch (error) {
+
+                console.error(error);
 
                 showToast(
-                    "Add assets/song.mp3 first 🎵"
+                    "Music could not be played 🎵"
                 );
 
             }
+
         }
+
     );
+
 }
+
 
 
 audioPlayer.addEventListener(
+
     "ended",
+
     function () {
 
-        const button =
-            document.getElementById(
-                "playMusic"
-            );
-
+        const playButton =
+            document.getElementById("playMusic");
 
         const vinyl =
-            document.getElementById(
-                "vinyl"
-            );
+            document.getElementById("vinyl");
 
 
-        if (button) {
-            button.textContent = "▶";
+        if (playButton) {
+
+            playButton.textContent = "▶";
+
         }
-
 
         if (vinyl) {
-            vinyl.classList.remove(
-                "playing"
-            );
+
+            vinyl.classList.remove("playing");
+
         }
+
     }
+
 );
-
-
-/* =========================================
-   HEADER SOUND BUTTON
-========================================= */
-
-soundButton.addEventListener(
-    "click",
-    function () {
-
-        if (audioPlayer.paused) {
-
-            showToast(
-                "Open the Music gift to play your song ♪"
-            );
-
-        } else {
-
-            audioPlayer.pause();
-
-            showToast(
-                "Music paused"
-            );
-        }
-    }
-);
-
-
-/* =========================================
-   TOAST
-========================================= */
-
-let toastTimer;
-
-
-function showToast(message) {
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toast.textContent =
-        message;
-
-
-    toast.classList.add(
-        "show"
-    );
-
-
-    toastTimer =
-        setTimeout(
-            function () {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            2500
-        );
-}
-
-
-/* =========================================
-   EFFECTS
-========================================= */
-
-function createEffects(
-    count = 20
-) {
-
-    const layer =
-        document.getElementById(
-            "effectsLayer"
-        );
-
-
-    const symbols = [
-        "♡",
-        "✦",
-        "✿",
-        "★"
-    ];
-
-
-    for (
-        let index = 0;
-        index < count;
-        index++
-    ) {
-
-        const effect =
-            document.createElement(
-                "span"
-            );
-
-
-        effect.className =
-            "falling-effect";
-
-
-        effect.textContent =
-            symbols[
-                Math.floor(
-                    Math.random()
-                    *
-                    symbols.length
-                )
-            ];
-
-
-        effect.style.left =
-            Math.random()
-            *
-            100
-            +
-            "vw";
-
-
-        effect.style.fontSize =
-            (
-                10
-                +
-                Math.random()
-                *
-                18
-            )
-            +
-            "px";
-
-
-        effect.style.color =
-            Math.random() > 0.5
-                ? "#7d3441"
-                : "#d7a09e";
-
-
-        effect.style.animationDuration =
-            (
-                3
-                +
-                Math.random()
-                *
-                4
-            )
-            +
-            "s";
-
-
-        effect.style.animationDelay =
-            Math.random()
-            *
-            0.8
-            +
-            "s";
-
-
-        layer.appendChild(
-            effect
-        );
-
-
-        setTimeout(
-            function () {
-
-                effect.remove();
-
-            },
-            8000
-        );
-    }
-}
