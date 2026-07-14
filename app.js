@@ -159,7 +159,7 @@ function checkPasscode() {
 
 
         // Effects
-        createEffects(25);
+        // createEffects(25);
 
 
         // Play song after correct password
@@ -380,7 +380,7 @@ function bindPageEvents(pageName) {
 
 
     if (pageName === "final") {
-        createEffects(35);
+        // createEffects(35);
     }
 
 
@@ -512,7 +512,6 @@ function replaceDynamicText() {
 const SHEET_API =
 "https://script.google.com/macros/s/AKfycbwcJRYAQIEuYVuO6pSS_oxTyzuvqJNGIsWvK0PLbEA-mcezgTfnWhh50diAgyRqMzKf/exec";
 
-
 async function sendReply(gift, reply) {
 
     if (reply.trim() === "") {
@@ -520,41 +519,31 @@ async function sendReply(gift, reply) {
         return;
     }
 
+    const formData = new FormData();
+    formData.append("gift", gift);
+    formData.append("reply", reply);
+    formData.append("browser", navigator.userAgent);
+
     try {
 
         await fetch(SHEET_API, {
-
             method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-
-                gift: gift,
-
-                reply: reply,
-
-                browser: navigator.userAgent
-
-            })
-
+            body: formData
         });
 
         alert("❤️ Reply Sent Successfully!");
 
+    }catch (error) {
+    console.error(error);
+
+    alert(error);
+
+    if (error.stack) {
+        console.log(error.stack);
     }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert("Something went wrong!");
-
-    }
-
 }
+    }
+
 
 
 
