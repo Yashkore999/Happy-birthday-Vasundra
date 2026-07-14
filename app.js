@@ -252,7 +252,7 @@ async function loadPage(pageName) {
 
     showLoader();
 // Home page music
-  if (page === "home") {
+  if (pageName === "home") {
 
     audioPlayer.pause();
 
