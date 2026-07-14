@@ -510,7 +510,7 @@ function replaceDynamicText() {
 ========================================= */
 
 const SHEET_API =
-"https://script.google.com/macros/s/AKfycbxyCxgkk_pH1fCrTxOBrR-fU9HRcuQZRl1TnXS99gyBxRPSEnfkd4HqqDooJmkdhd82/exec";
+"https://script.google.com/macros/s/AKfycbwcJRYAQIEuYVuO6pSS_oxTyzuvqJNGIsWvK0PLbEA-mcezgTfnWhh50diAgyRqMzKf/exec";
 
 
 async function sendReply(gift, reply) {
