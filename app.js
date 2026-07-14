@@ -159,7 +159,7 @@ function checkPasscode() {
 
 
         // Effects
-        // createEffects(25);
+        // eEffects(25);
 
 
         // Play song after correct password
@@ -256,7 +256,7 @@ async function loadPage(pageName) {
 
     audioPlayer.pause();
 
-    audioPlayer.src = "./assets/home-song.1.mp3";
+    audioPlayer.src = "./assets/song.1.mp3";
 
     audioPlayer.load();
 
@@ -380,7 +380,7 @@ function bindPageEvents(pageName) {
 
 
     if (pageName === "final") {
-        // createEffects(35);
+        // eEffects(35);
     }
 
 
@@ -510,7 +510,7 @@ function replaceDynamicText() {
 ========================================= */
 
 const SHEET_API =
-"https://script.google.com/macros/s/AKfycbwcJRYAQIEuYVuO6pSS_oxTyzuvqJNGIsWvK0PLbEA-mcezgTfnWhh50diAgyRqMzKf/exec";
+"https://script.google.com/macros/s/AKfycbyXjR3Qq0MYIB7RiUHhNQBzJXBRdUF1SnauJIP1OY_y86xYkVgaXM_9PiOG1BDNIKuG/exec";
 
 async function sendReply(gift, reply) {
 
@@ -730,7 +730,7 @@ function setupGifts() {
                         );
 
 
-                        createEffects(
+                        eEffects(
                             10
                         );
 
@@ -852,7 +852,7 @@ function setupReasons() {
             showReason();
 
 
-            createEffects(
+            eEffects(
                 5
             );
         }
