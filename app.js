@@ -9,7 +9,7 @@ const CONFIG = {
 
     yourName: "samrat",
 
-    songTitle: "yash",
+    songTitle: "W♡men 💀",
 
     artistName: "YOUR ARTIST"
 };
